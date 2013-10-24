@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Sample</title>
+    <script type="application/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body ng-controller="Controller">
+
+    <!-- ボックス内のテキストを{{text}}に反映-->
+    <input type="text" ng-model="text"> {{text}}
+    <button ng-click="add()">Add</button>
+
+    <ul ng-repeat="user in userList">
+        <li>{{user}}</li>
+    </ul>
+
+    <ul ng-repeat="cat in catList">
+        <li>{{cat.kind}} - {{cat.spec}}</li>
+    </ul>
+</body>
+</html>

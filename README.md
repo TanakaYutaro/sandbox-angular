@@ -11,5 +11,9 @@
 - `{{25 * 100 | currency}}` // 通貨（$を自動追加）
 - `{{25 * 100 | currency:"¥"}}` // ""内の文字をラベル化する
 - `{{today | date:'yyyy-MM-dd / hh:mm:ss'}}` // 日付のフォーマット指定（$scope.today = new Date();）
+
+# 繰り返しのフィルタ
 - `<input type="text" ng-model="query" />` と `user in users | filter:query` // input の文字列にヒットするデータフィルタ
 - `ng-model="query.name"` // で文字列のみフィルタ
+- `{{$index}}` // 要素インデックスの付加
+- `<li ng-repeat="user in users" ng-class-even="'even'" ng-class-odd="'odd'">` // 偶奇によって class プロパティを変更

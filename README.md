@@ -83,3 +83,13 @@ var userItemCtrl = function($scope) {
         <pre>{{user | json}}</pre>
     </div>
 </pre>
+
+
+# その他
+- `input type="checkbox" ng-model="user.adult"` // ng-true-value="adult" ng-false-value="child"で値を変えられる
+- `ng-options="color for color in colors"`      // デフォルト
+- `ng-options="'label:' + color for color in colors"` // 表示にラベルを追加
+- `ng-options="'label:'+color for color in ['red','blue','pink']" ng-init="user.color='red'"` // デフォルトラベルの設定
+
+# 参考
+- http://dotinstall.com/lessons/basic_angularjs

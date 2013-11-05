@@ -17,3 +17,39 @@
 - `ng-model="query.name"` // で文字列のみフィルタ
 - `{{$index}}` // 要素インデックスの付加
 - `<li ng-repeat="user in users" ng-class-even="'even'" ng-class-odd="'odd'">` // 偶奇によって class プロパティを変更
+
+# ng-controller のネスト
+
+<pre class=“prettyprint linenums:0”>
+<div ng-controller="mainCtrl">
+        <ul>
+            <li ng-repeat="user in users" ng-controller="userItemCtrl">
+               {{user.name | lowercase}}  {{user.score | number:3}}
+                <button ng-click="increment()">+1</button>
+            </li>
+        </ul>
+    </div>
+</pre>
+
+<pre class="prettyprint linenums:0>
+var mainCtrl = function($scope) {
+    $scope.users = [
+        {"name" : "Yutaro", "score" : 99.99},
+        {"name" : "Mori", "score" : 88.99},
+        {"name" : "Kobayashi", "score" : 77.99},
+        {"name":"hayashi", "score":5.25},
+        {"name":"tanahashi", "score":82.4},
+        {"name":"yasuda", "score":55.21},
+        {"name":"minami", "score":32.8},
+        {"name":"yanagi", "score":72.2}
+    ];
+}
+
+
+var userItemCtrl = function($scope) {
+    $scope.increment = function() {
+        // ファイルでネストしている場合親要素（user）が使用できる
+        $scope.user.score++;
+    }
+}
+</pre>

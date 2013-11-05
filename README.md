@@ -49,3 +49,37 @@ var userItemCtrl = function($scope) {
     }
 }
 </pre>
+
+
+
+# フォーム
+
+<pre class="prettyprint linenums:0">
+    <div ng-controller="mainCtrl">
+        <form name="myForm" ng-submit="addUser()">
+            <p>Name:
+                <input type="text" name="name" ng-model="user.name" required ng-minlength="5" ng-maxlength="8">
+                <span ng-show="myForm.name.$error.required">Required!</span>
+                <span ng-show="myForm.name.$error.minlength">Too short!</span>
+                <span ng-show="myForm.name.$error.maxlength">Too long!</span>
+            </p>
+
+            <p>Score:
+                <input type="number" name="score"  ng-model="user.score">
+            </p>
+
+            <p>E-mail:
+                <input type="email" name="email" ng-model="user.email">
+                <span ng-show="myForm.email.$error.email">Not valid email!</span>
+            </p>
+
+            <p>Web:
+                <input type="url" name="url" ng-model="user.url">
+                <span ng-show="myForm.url.$error.url">Not valid url!</span>
+            </p>
+
+            <p><input type="submit" value="add"></p>
+        </form>
+        <pre>{{user | json}}</pre>
+    </div>
+</pre>

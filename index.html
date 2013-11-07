@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html ng-app>
+<html lang="ja" ng-app>
 <head>
     <meta charset="UTF-8">
     <title>AngularJS Sample</title>
+
+    <!-- ライブラリ -->
     <script type="application/javascript" src="js/lib/angular.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- 自作Script -->
+
 </head>
-<body ng-controller="Controller">
 
-    <!-- ボックス内のテキストを{{text}}に反映-->
-    <input type="text" ng-model="text"> {{text}}
-    <button ng-click="add()">Add</button>
+<body ng-controller="Ctrl">
 
-    <ul ng-repeat="user in userList">
-        <li>{{user}}</li>
-    </ul>
+    <input type="text" ng-model="text">
 
-    <ul ng-repeat="cat in catList">
-        <li>{{cat.kind}} - {{cat.spec}}</li>
-    </ul>
+    {{text}}
+
 </body>
 </html>

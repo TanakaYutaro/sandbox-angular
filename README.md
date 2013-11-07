@@ -1,4 +1,5 @@
 # サンプルソース
+- [NG-Init-Minimum](https://github.com/TanakaYutaro/AngularJSSample/releases/tag/NG-Init-Minimum "Minimum NG-INIT Code")
 - [SearchForm](https://github.com/TanakaYutaro/AngularJSSample/releases/tag/FormQueryFilter "SearchForm")
 - [RegistFormTemplateMinimam](https://github.com/TanakaYutaro/AngularJSSample/releases/tag/FormTemplateMin "FormTemplateMinimam")
 - [TodoList](https://github.com/TanakaYutaro/AngularJSSample/releases/tag/TodoList "TodoList")

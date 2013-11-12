@@ -1,0 +1,18 @@
+{
+  "author": "YutaroTanaka",
+  "name": "ng-test",
+  "description": "AngularJS Test Template",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TanakaYutaro/AngularJSTestTemplate.git"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "engines": {
+    "node": "0.10.21"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

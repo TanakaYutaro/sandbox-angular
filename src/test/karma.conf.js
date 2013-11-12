@@ -24,7 +24,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-        '../main/lib/angular-loader*.js'
+        '../main/lib/angularjs/angular-loader*.js'
     ],
 
 

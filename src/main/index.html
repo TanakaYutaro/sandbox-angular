@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ng-test">
 <head>
-    <title></title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/angularjs/angular.js"></script>
+    <script type="text/javascript" src="lib/angularjs/angular-route.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <title>AngularJSTestTemplate</title>
 </head>
 <body>
+
+<h1>AngularJSTestTemplate</h1>
+
+    <div ng-controller="SampleTestController">
+        <input type="text" ng-model="name" />
+        {{name}}
+    </div>
 
 </body>
 </html>

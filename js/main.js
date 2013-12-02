@@ -14,6 +14,7 @@ angular.module("testApp", ["ngRoute"], function ($routeProvider, $locationProvid
     .controller("FooController", FooController)
     .controller("SearchController", SearchController);
 
+
 function FooController($scope, $routeParams) {
     $scope.fooId = $routeParams.fooId;
 }
@@ -57,4 +58,19 @@ function SearchController($scope) {
             note: "エコーズ"
         }
     ];
+
+    $scope.search = "";
+
+    $scope.matches = function (element) {
+        var query = $scope.search;
+        query = query.replace(/　/g, " ");
+        var searchArr = query.split(" ");
+
+        var elementString = JSON.stringify(element); // 一時しのぎ
+        var ret = true;
+        $.each(searchArr, function (index, keyword) {
+            ret = ret && (keyword == "" || (elementString.search(keyword) != -1));
+        });
+        return ret;
+    };
 }

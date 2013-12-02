@@ -9,8 +9,6 @@
     <title>AngularJS Test</title>
 </head>
 <body>
-{{username || 'default'}}<br/>
-<input type="text" ng-model="username" placeholder="name"/>
 
 <marquee>こんにちは〜</marquee>
 
@@ -30,7 +28,6 @@
     </div>
 </script>
 <script type="text/ng-template" id="/template/main.html">
-    おいでませクッパ城<br>
     <a ng-href="/foo">ふー!</a>
     <hr>
     <hr>
@@ -48,7 +45,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="user in users | orderBy: 'id' | filter: search">
+            <tr ng-repeat="user in users | orderBy: 'id' | filter: matches">
                 <td>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.kana}}</td>

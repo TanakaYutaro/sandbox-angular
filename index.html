@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="EngineeR">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Libraries -->
+    <link rel="stylesheet" type="text/css" href="/BingoJS/src/main/lib/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/angularjs/angular.js"></script>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/angularjs/angular-route.js"></script>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Main -->
+    <script type="text/javascript" src="/BingoJS/src/main/js/main.js"></script>
+
+    <title>BingoJS</title>
+</head>
+<body>
+
+<a ng-href="/er/">TOP</a>
+<a ng-href="/er/about">About</a>
+
+
+<!-- 各画面を表示する枠 -->
+<div class="container" ng-view></div>
+
+<script type='text/ng-template' id="/template/index.html">
+    <h2>TOP</h2>
+</script>
+
+<script type='text/ng-template' id="/template/about.html">
+    <h2>About</h2>
+</script>
+
+</body>
+</html>

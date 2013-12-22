@@ -10,6 +10,7 @@ function BingoController($scope, bingoService) {
 
     $scope.pickNumber = function() {
         var pickedNumber = bingoService.pickNumber(shuffledNumbers);
+        $scope.pickedNumber = pickedNumber;
         pickedNumbers.push(pickedNumber);
     };
 }

@@ -17,8 +17,12 @@
     <!-- Controller -->
     <script type="text/javascript" src="/BingoJS/src/main/js/controller/bingoController.js"></script>
 
+    <!-- Direfctive -->
+    <script type="text/javascript" src="/BingoJS/src/main/js/directive/pickedNumbers.js"></script>
+
     <!-- Main -->
     <script type="text/javascript" src="/BingoJS/src/main/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/BingoJS/src/main/css/style.css"/>
 
     <title>BingoJS</title>
 </head>
@@ -36,14 +40,14 @@
 
     <div ng-controller="BingoController">
         <button class = "pick" ng-click="pickNumber()">Pick</button>
-        <label>shuffled</label>
-        <p>
+        <span>
             残り <span>{{shuffledNumbers.length}}</span> 個
-        </p>
-        <span ng-repeat="shuffledNumber in shuffledNumbers">{{shuffledNumber}} </span>
+        </span>
 
-        <label>Picked</label>
-        <span ng-repeat="pickedNumber in pickedNumbers">{{pickedNumber}} </span>
+        <div class="latestPickedNumber">{{pickedNumber}}</div>
+
+        <h3>Numbers</h3>
+        <picked ng-repeat="pickedNumber in pickedNumbers" num="{{pickedNumber}}">{{pickedNumber}}</picked>
     </div>
 
 </script>

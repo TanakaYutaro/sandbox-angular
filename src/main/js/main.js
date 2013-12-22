@@ -13,4 +13,6 @@ angular.module("BingoJS", ["ngRoute"], function ($routeProvider, $locationProvid
         $locationProvider.html5Mode(true);
     }
 )
-    .service("bingoService", BingoService);
+    .value("maxNumber", 75)
+    .service("bingoService", BingoService)
+    .controller("BingoController", BingoController);

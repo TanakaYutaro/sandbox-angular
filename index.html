@@ -14,6 +14,9 @@
     <!-- Service -->
     <script type="text/javascript" src="/BingoJS/src/main/js/service/bingoService.js"></script>
 
+    <!-- Controller -->
+    <script type="text/javascript" src="/BingoJS/src/main/js/controller/bingoController.js"></script>
+
     <!-- Main -->
     <script type="text/javascript" src="/BingoJS/src/main/js/main.js"></script>
 
@@ -30,6 +33,19 @@
 
 <script type='text/ng-template' id="/template/index.html">
     <h2>TOP</h2>
+
+    <div ng-controller="BingoController">
+        <button class = "pick" ng-click="pickNumber()">Pick</button>
+        <label>shuffled</label>
+        <p>
+            残り <span>{{shuffledNumbers.length}}</span> 個
+        </p>
+        <span ng-repeat="shuffledNumber in shuffledNumbers">{{shuffledNumber}} </span>
+
+        <label>Picked</label>
+        <span ng-repeat="pickedNumber in pickedNumbers">{{pickedNumber}} </span>
+    </div>
+
 </script>
 
 <script type='text/ng-template' id="/template/about.html">

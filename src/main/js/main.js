@@ -14,5 +14,6 @@ angular.module("BingoJS", ["ngRoute"], function ($routeProvider, $locationProvid
     }
 )
     .value("maxNumber", 75)
+    .directive("picked", PickedNumbers)
     .service("bingoService", BingoService)
     .controller("BingoController", BingoController);

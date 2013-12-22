@@ -1,0 +1,19 @@
+{
+  "name": "BingoJS",
+  "version": "0.0.0",
+  "description": "Bingo Game on Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TanakaYutaro/BingoJS.git"
+  },
+  "author": "Yutaro Tanaka",
+  "license": "not commedical",
+  "bugs": {
+    "url": "https://github.com/TanakaYutaro/BingoJS/issues"
+  },
+  "homepage": "https://github.com/TanakaYutaro/BingoJS"
+}

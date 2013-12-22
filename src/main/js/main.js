@@ -12,4 +12,5 @@ angular.module("BingoJS", ["ngRoute"], function ($routeProvider, $locationProvid
             });
         $locationProvider.html5Mode(true);
     }
-);
+)
+    .service("bingoService", BingoService);

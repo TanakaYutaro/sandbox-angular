@@ -1,4 +1,4 @@
-angular.module("EngineeR", ["ngRoute"], function ($routeProvider, $locationProvider) {
+angular.module("BingoJS", ["ngRoute"], function ($routeProvider, $locationProvider) {
         var serviceName = "er";
         $routeProvider
             .when("/" + serviceName + "/", {

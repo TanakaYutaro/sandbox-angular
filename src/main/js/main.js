@@ -1,4 +1,4 @@
-angular.module("EngineeR", ["ngRoute"], function ($routeProvider, $locationProvider) {
+angular.module("BingoJS", ["ngRoute"], function ($routeProvider, $locationProvider) {
         var serviceName = "er";
         $routeProvider
             .when("/" + serviceName + "/", {
@@ -12,4 +12,7 @@ angular.module("EngineeR", ["ngRoute"], function ($routeProvider, $locationProvi
             });
         $locationProvider.html5Mode(true);
     }
-);
+)
+    .value("maxNumber", 75)
+    .service("bingoService", BingoService)
+    .controller("BingoController", BingoController);

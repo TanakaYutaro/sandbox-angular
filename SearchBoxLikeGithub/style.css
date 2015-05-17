@@ -14,3 +14,7 @@ th {
 td {
     background-color: lightgray;
 }
+
+.pointer {
+    cursor: pointer;
+}

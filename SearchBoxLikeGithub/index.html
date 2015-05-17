@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html ng-app="SearchBoxLikeGithubApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+
+    <script type="text/javascript" src="js/SearchBoxService.js"></script>
+    <script type="text/javascript" src="js/SearchBoxController.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>SearchBoxLikeGithub</title>
+</head>
+<body>
+
+<h1>SearchBoxLikeGithub</h1>
+
+<div ng-controller="SearchBoxController as vm">
+    <input type="text" ng-model="vm.keyword" placeholder="Keyword"/>
+
+    <p>
+        検索ヒット数 : <span class="vm.searchResultCount hit">{{(vm.users | filter:vm.keyword).length}}</span>
+        件 / <span class="vm.searchResultCount">{{vm.users.length}}</span> 件中
+    </p>
+
+    <table class="data-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>氏名</th>
+            <th>フリガナ</th>
+            <th>備考</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in vm.users | filter:vm.keyword">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.kana}}</td>
+            <td>{{user.note}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <small>※ サンプルデータは、
+            <a href="http://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A7%E3%82%B8%E3%83%A7%E3%81%AE%E5%A5%87%E5%A6%99%E3%81%AA%E5%86%92%E9%99%BA">
+                ジョジョの奇妙な冒険
+            </a> から拝借しました
+        </small>
+    </p>
+</div>
+
+</body>
+</html>

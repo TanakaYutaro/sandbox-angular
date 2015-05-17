@@ -19,12 +19,14 @@
 <h1>SearchBoxLikeGithub</h1>
 
 <div ng-controller="SearchBoxController as vm">
-    <input type="text" ng-init="vm.filter = '$'" ng-model="vm.keyword[vm.filter]" placeholder="Keyword"/>
 
     <div>
-        <span>Filter: </span>
-        <span>{{vm.filterLabel[vm.filter]}}</span>
+        <span class="search-group">
+            <span class="scope-badge" ng-show="vm.filter != '$'">{{vm.filterLabel[vm.filter]}}</span>
+            <input type="text" ng-init="vm.filter = '$'" ng-model="vm.keyword[vm.filter]" placeholder="Keyword" />
+        </span>
     </div>
+
     <div>
         <span>Filter List: </span>
         <span ng-repeat="(k, v) in vm.filterLabel" ng-click="vm.switchFilter(k)" class="pointer">[{{v}}]</span>

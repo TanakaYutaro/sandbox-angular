@@ -26,4 +26,9 @@ SearchBoxController.prototype.switchFilter = function (target) {
     for (var k in self.keyword) {
         this.keyword[k] = '';
     }
+
+    this.$timeout(function () {
+        var badgeWidth = $(".search-group .scope-badge").width() + 15;
+        $(".search-group > input").css('padding-left', badgeWidth + "px");
+    }, 15);
 };

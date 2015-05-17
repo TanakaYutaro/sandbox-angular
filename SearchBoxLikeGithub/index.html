@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/SearchBoxController.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 
     <title>SearchBoxLikeGithub</title>
@@ -22,8 +23,12 @@
 
     <div>
         <span class="search-group">
-            <span class="scope-badge" ng-show="vm.filter != '$'">{{vm.filterLabel[vm.filter]}}</span>
-            <input type="text" ng-init="vm.filter = '$'" ng-model="vm.keyword[vm.filter]" placeholder="Keyword" />
+            <span class="scope-badge" ng-if="vm.filter != '$'">
+                {{vm.filterLabel[vm.filter]}}
+                <i class="fa fa-times fs5 pointer" ng-click="vm.switchFilter('$')"></i>
+            </span>
+
+            <input type="text" ng-init="vm.filter = '$'" ng-model="vm.keyword[vm.filter]" placeholder="Keyword"/>
         </span>
     </div>
 

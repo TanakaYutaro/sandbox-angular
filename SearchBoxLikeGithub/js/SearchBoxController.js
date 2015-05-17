@@ -28,7 +28,12 @@ SearchBoxController.prototype.switchFilter = function (target) {
     }
 
     this.$timeout(function () {
-        var badgeWidth = $(".search-group .scope-badge").width() + 15;
+        var badge = $(".search-group .scope-badge");
+        var badgeWidth = 0;
+
+        if (badge.width() != null) {
+            badgeWidth = badge.width() + 15;
+        }
         $(".search-group > input").css('padding-left', badgeWidth + "px");
     }, 15);
 };

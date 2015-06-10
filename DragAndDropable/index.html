@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="dragAndDropable">
+<head>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.5/hammer.min.js"></script>
+    <script type="text/javascript" src="//s.cdpn.io/61329/angular-hammer.js"></script>
+    <script type="text/javascript" src="//s3-us-west-2.amazonaws.com/s.cdpn.io/61329/ngRepeatReorder.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+    <title>DragAndDropable</title>
+
+</head>
+<body>
+
+<h1>DragAndDropable
+    <small>Using <a href="https://github.com/SimeonC/ngRepeatReorder">ngRepeatReorder</a></small>
+</h1>
+
+<div class="container" ng-controller="MainController as vm">
+    <div class="row">
+        <div class="form-group">
+            <input class="form-control form-inline" type='text'
+                   ng-model='vm.tempTarget'
+                   tabindex='{{vm.targets.length + 1}}'
+                   placeholder='New'/>
+            <button ng-click="vm.updateTargets()">Add Target</button>
+        </div>
+        <code>{{vm.targets}}</code>
+    </div>
+    <div class="row">
+        <div id="targets" class="span-3 form-inline" role="form">
+            <div class="form-group has-feedback transition" ng-repeat-reorder='target in vm.targets'
+                 ng-repeat-reorder-handle="i.fa.fa-bars">
+                <input class="form-control form-inline target" type='text'
+                       tabindex='{{$index + 1}}'
+                       ng-change='vm.checkForNameDelete($index)'
+                       ng-model='target.val'
+                       ng-class="{'last-target': $index == vm.targets.length-1}">
+                <i class="fa fa-bars form-control-feedback"></i>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

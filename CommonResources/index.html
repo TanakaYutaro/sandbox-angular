@@ -14,13 +14,17 @@
 <body>
 
 <h1>MainController</h1>
-<div ng-Controller="MainController as mainVm">
+<div ng-Controller="MainController as mainVm" ng-init="mainVm.init('5578fe28bdbf28b604423c58')">
     <input type="text" ng-model="mainVm.user.data.name"/>
-    <button ng-click="mainVm.reload()">Reload</button>
+    <button ng-click="mainVm.user.fetch()">Load from server</button>
 </div>
-<h1>SubController</h1>
-<div ng-Controller="SubController as subVm">
-    <input type="text" ng-model="subVm.user.data.name"/>
+<h1>Sub1Controller</h1>
+<div ng-Controller="Sub1Controller as sub1Vm">
+    <input type="text" ng-model="sub1Vm.user.data.name"/>
+</div>
+<h1>Sub2Controller</h1>
+<div ng-Controller="Sub2Controller as sub2Vm">
+    <input type="text" ng-model="sub2Vm.user.data.name"/>
 </div>
 
 </body>

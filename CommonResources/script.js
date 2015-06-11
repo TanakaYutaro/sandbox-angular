@@ -1,20 +1,4 @@
 angular.module("MyApp", ["ngResource"])
-    .factory('AbstractModel', function () {
-        var Model = function (defaults, resource) {
-            this.data = defaults;
-            this.resource = resource;
-        };
-
-        Model.prototype.fetch = function () {
-            var self = this;
-
-            this.resource.query(function (result) {
-                self.data = result.data;
-            });
-        };
-
-        return Model;
-    })
     .factory('AbstractResource', function ($resource) {
         var baseURL = 'http://www.mocky.io',
             baseParams = {
@@ -34,28 +18,43 @@ angular.module("MyApp", ["ngResource"])
             return $resource(url, p, o);
         };
     })
-    .factory('UserResource', function (AbstractResource) {
-        var endpoint = "/v2/5578f13ebdbf289403423c57";
-        var params = {};
-        var options = {};
-
-        return new AbstractResource(endpoint, params, options);
-    })
-    .factory('UserModel', function (AbstractModel, UserResource) {
+    .factory('UserModel', function (AbstractResource) {
 
         var defaults = {
-            name: "GeoGeo"
+            name: "JoJo",
+            userId: ""
         };
 
-        return new AbstractModel(defaults, UserResource);
+        var Model = function () {
+            this.data = defaults;
+            // TODO これでわたせないのか？？
+            // var params = {userId: "@userId"};
+            this.resource = AbstractResource("/v2/:userId", {}, {});
+        };
+
+        Model.prototype.fetch = function () {
+            var self = this;
+
+            this.resource.query({userId: self.data.userId}, function (result) {
+                self.data.name = result.data.name;
+            });
+        };
+
+        return new Model();
     })
-    .controller("MainController", function ($scope, UserModel) {
+    .controller("MainController", function (UserModel) {
         this.user = UserModel;
 
-        this.reload = function () {
-            UserModel.fetch();
+        this.init = function (id) {
+            UserModel.data.userId = id;
+            UserModel.userId = id;
+
+            // UserModel.fetch();
         }
     })
-    .controller("SubController", function ($scope, UserModel) {
+    .controller("Sub1Controller", function (UserModel) {
+        this.user = UserModel;
+    })
+    .controller("Sub2Controller", function (UserModel) {
         this.user = UserModel;
     });

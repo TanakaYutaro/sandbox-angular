@@ -15,7 +15,7 @@
         <input type="text" ng-model="vm.newTodo" placeholder="TODO名を入力">
         <input type="submit" type="button" value="新規作成">
     </form>
-    <ul ng-repeat="todo in vm.todos">
+    <ul ng-repeat="todo in vm.todos track by $index">
         <li>{{todo}}</li>
     </ul>
 </div>

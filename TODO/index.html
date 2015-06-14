@@ -5,6 +5,7 @@
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css">
 
     <title>TODO</title>
 </head>
@@ -14,11 +15,12 @@
     <form ng-submit="vm.create()">
         <input type="text" ng-model="vm.newTodo" placeholder="TODO名を入力">
         <input type="submit" type="button" value="新規作成">
+        <input type="button" ng-click="vm.archive()" value="完了したTODOをアーカイブ">
     </form>
     <ul ng-repeat="todo in vm.todos track by $index">
         <li>
             <input type="checkbox" ng-model="todo.done">
-            <span>{{todo.title}}</span>
+            <span ng-class="{'done': todo.done }">{{todo.title}}</span>
         </li>
     </ul>
 </div>

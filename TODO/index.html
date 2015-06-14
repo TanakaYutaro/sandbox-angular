@@ -16,7 +16,10 @@
         <input type="submit" type="button" value="新規作成">
     </form>
     <ul ng-repeat="todo in vm.todos track by $index">
-        <li>{{todo}}</li>
+        <li>
+            <input type="checkbox" ng-model="todo.done">
+            <span>{{todo.title}}</span>
+        </li>
     </ul>
 </div>
 

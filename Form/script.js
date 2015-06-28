@@ -21,23 +21,22 @@ angular.module("MyApp", [])
                 required: '=',
                 validation: '='
             },
-            controller: function ($scope) {
-                $scope.isError = function (target) {
+            link: function (scope, element, attrs, controllers) {
+                var target = controllers[0][attrs.name];
+
+                scope.isError = function () {
                     return target.$dirty && target.$invalid;
                 };
 
-                $scope.isRequiredError = function (target) {
+                scope.isRequiredError = function () {
                     return target.$error.required;
                 };
 
-                $scope.isInvalidError = function (target) {
-                    return !$scope.isRequiredError(target)
+                scope.isInvalidError = function () {
+                    return !scope.isRequiredError()
                         && target.$invalid
-                        && $scope.validation.message;
+                        && scope.validation.message;
                 };
-            },
-            link: function (scope, element, attrs, ctrl) {
-                scope.target = ctrl[0][attrs.name];
             },
             templateUrl: "template/template.html"
         };

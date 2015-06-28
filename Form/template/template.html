@@ -1,9 +1,9 @@
-<div class="form-group" ng-class="{'has-error': isError(target)}">
+<div class="form-group" ng-class="{'has-error': isError()}">
     <label ng-bind="title" class="control-label"></label><span ng-if="required">*</span>
 
-    <small ng-show="isError(target)">
-        <span ng-if="isRequiredError(target)">必須です</span>
-        <span ng-if="isInvalidError(target)">{{validation.message}}</span>
+    <small ng-show="isError()">
+        <span ng-if="isRequiredError()">必須です</span>
+        <span ng-if="isInvalidError()">{{validation.message}}</span>
     </small>
     <input type="text" class="form-control" name="{{name}}"
            ng-model="ngModel" ng-required="required"

@@ -18,7 +18,7 @@
 
     <form name="myForm">
         <div my-input name="name" ng-model="formData.name" required="true" placeholder="田中太郎" title="氏名"></div>
-        <div my-input name="mail" ng-model="formData.mail" required="true" placeholder="example@example.com"
+        <div my-input name="mail" ng-model="formData.mail" placeholder="example@example.com"
              title="メールアドレス" validation="vm.patterns.mail"></div>
         <hr>
         <button class="button btn btn-primary btn-block" ng-disabled="myForm.$invalid">登録</button>

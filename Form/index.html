@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+
+    <script type="text/javascript" src="script.js"></script>
+
+    <title>CommonResources</title>
+</head>
+<body ng-Controller="MainController as vm">
+
+<div class="container">
+    <h3>会員登録</h3>
+
+    <div ng-form name='testForm'>
+        <div my-input id="name" ng-model="formData.name" ng-required="true" placeholder="田中太郎" title="氏名"></div>
+        <div my-input id="zip-code" ng-model="formData.zipCode" ng-required="true" placeholder="1234567" title="郵便番号"
+             validation="vm.patterns.zipCode"></div>
+        <div my-input id="phone-number" ng-model="formData.phoneNumber" ng-required="true" placeholder="0312345678"
+             title="電話番号" validation="vm.patterns.phone"></div>
+        <div my-input id="mail" ng-model="formData.mail" ng-required="true" placeholder="example@example.com"
+             title="メールアドレス" validation="vm.patterns.mail"></div>
+        <hr>
+        <button class="button btn btn-primary btn-block" ng-disabled="testForm.$invalid">登録</button>
+    </div>
+</div>
+
+</body>
+</html>

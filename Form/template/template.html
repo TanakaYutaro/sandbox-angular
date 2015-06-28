@@ -1,0 +1,9 @@
+<div class="field" class="form-group" ng-class="{'has-error': target.$dirty && target.$invalid}">
+    <label ng-bind="title" class="control-label"></label>
+    <small class="errors" ng-show="target.$dirty">
+        <span ng-bind="errMsg.required" ng-if="target.$error.required && errMsg.required"></span>
+        <span ng-bind="errMsg.invalid" ng-if="!target.$error.required && target.$invalid && errMsg.invalid"></span>
+    </small>
+    <input name="{{id}}" ng-model="ngModel" ng-required="ngRequired" ng-pattern="validation.regexp"
+           maxlength="{{validation.maxlength}}" placeholder="{{placeholder}}" type="text" class="form-control"/>
+</div>

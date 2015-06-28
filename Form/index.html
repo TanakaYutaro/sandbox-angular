@@ -17,21 +17,10 @@
     <h3>会員登録</h3>
 
     <form name="myForm">
-        <div class="form-group" ng-class="{'has-error': myForm.name.$dirty && myForm.name.$invalid}">
-            <label class="control-label">氏名</label>*
-            <small ng-if="myForm.name.$dirty && myForm.name.$error.required">必須です</small>
-            <input type="text" class="form-control" name="name"
-                   ng-model="formData.name" ng-required="true" placeholder="田中太郎"/>
-        </div>
-
-        <div class="form-group" ng-class="{'has-error': myForm.mail.$dirty && myForm.mail.$invalid}">
-            <label class="control-label">メールアドレス</label>
-            <span ng-if="myForm.mail.$dirty && myForm.mail.$invalid">
-                {{vm.patterns.mail.message}}
-            </span>
-            <input type="text" class="form-control" name="mail"
-                   ng-model="formData.mail" ng-pattern="vm.patterns.mail.regex" placeholder="example@example.com"/>
-        </div>
+        <div my-input title="氏名" name="name" ng-model="formData.name"
+             required="true" placeholder="田中太郎"></div>
+        <div my-input title="メールアドレス" name="mail" ng-model="formData.mail"
+             placeholder="example@example.com" validation="vm.patterns.mail"></div>
 
         <button class="button btn btn-primary btn-block" ng-disabled="myForm.$invalid">登録</button>
     </form>

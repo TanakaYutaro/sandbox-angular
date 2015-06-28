@@ -9,24 +9,20 @@
 
     <script type="text/javascript" src="script.js"></script>
 
-    <title>CommonResources</title>
+    <title>Form</title>
 </head>
-<body ng-Controller="MainController as vm">
+<body ng-Controller="MyController as vm">
 
 <div class="container">
     <h3>会員登録</h3>
 
-    <div ng-form name='testForm'>
-        <div my-input id="name" ng-model="formData.name" ng-required="true" placeholder="田中太郎" title="氏名"></div>
-        <div my-input id="zip-code" ng-model="formData.zipCode" ng-required="true" placeholder="1234567" title="郵便番号"
-             validation="vm.patterns.zipCode"></div>
-        <div my-input id="phone-number" ng-model="formData.phoneNumber" ng-required="true" placeholder="0312345678"
-             title="電話番号" validation="vm.patterns.phone"></div>
-        <div my-input id="mail" ng-model="formData.mail" ng-required="true" placeholder="example@example.com"
+    <form name="myForm">
+        <div my-input name="name" ng-model="formData.name" required="true" placeholder="田中太郎" title="氏名"></div>
+        <div my-input name="mail" ng-model="formData.mail" required="true" placeholder="example@example.com"
              title="メールアドレス" validation="vm.patterns.mail"></div>
         <hr>
-        <button class="button btn btn-primary btn-block" ng-disabled="testForm.$invalid">登録</button>
-    </div>
+        <button class="button btn btn-primary btn-block" ng-disabled="myForm.$invalid">登録</button>
+    </form>
 </div>
 
 </body>

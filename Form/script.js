@@ -1,19 +1,9 @@
 angular.module("MyApp", [])
-    .controller("MainController", function () {
+    .controller("MyController", function () {
         this.patterns = {
-            zipCode: {
-                regexp: /^[0-9]{7}$/,
-                msg: 'ハイフンなしの7桁の数字で入力してください',
-                maxlength: 7
-            },
-            phone: {
-                regexp: /^[0-9]{10,11}$/,
-                msg: 'ハイフンなしの半角数字を10〜11桁で入力してください',
-                maxlength: 11
-            },
             mail: {
                 regexp: /^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/,
-                msg: 'メールアドレス形式が不正です。'
+                message: 'メールアドレス形式が不正です。'
             }
         };
     })
@@ -25,26 +15,29 @@ angular.module("MyApp", [])
             replace: true,
             scope: {
                 title: '@',
-                id: '@',
+                name: '@',
+                placeholder: '@',
                 ngModel: '=',
-                ngRequired: '=',
-                validation: '=',
-                placeholder: '@?',
-                errMsg: '=?'
+                required: '=',
+                validation: '='
             },
-            controller: ['$scope', function ($scope) {
-                if (!$scope.errMsg) {
-                    $scope.errMsg = {};
-                }
-                if ($scope.ngRequired === true && !('required' in $scope.errMsg)) {
-                    $scope.errMsg.required = $scope.title + 'を入力して下さい';
-                }
-                if ($scope.validation && !('invalid' in $scope.errMsg)) {
-                    $scope.errMsg.invalid = $scope.validation.msg;
-                }
-            }],
+            controller: function ($scope) {
+                $scope.isError = function (target) {
+                    return target.$dirty && target.$invalid;
+                };
+
+                $scope.isRequiredError = function (target) {
+                    return target.$error.required;
+                };
+
+                $scope.isInvalidError = function (target) {
+                    return !$scope.isRequiredError(target)
+                        && target.$invalid
+                        && $scope.validation.message;
+                };
+            },
             link: function (scope, element, attrs, ctrl) {
-                scope.target = ctrl[0][attrs.id];
+                scope.target = ctrl[0][attrs.name];
             },
             templateUrl: "template/template.html"
         };

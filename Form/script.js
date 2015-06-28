@@ -9,7 +9,7 @@ angular.module("MyApp", [])
     })
     .directive('myInput', function () {
         return {
-            restrict: 'A',
+            restrict: 'E',
             require: ['^?form'],
             transclude: true,
             replace: true,

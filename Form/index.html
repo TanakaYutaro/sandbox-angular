@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+
+    <script type="text/javascript" src="script.js"></script>
+
+    <title>Form</title>
+</head>
+<body>
+
+<div class="container" ng-Controller="MyController as vm">
+    <h3>会員登録</h3>
+
+    <form name="myForm">
+        <my-input title="氏名" name="name" ng-model="formData.name"
+             required="true" placeholder="田中太郎"></my-input>
+        <my-input title="メールアドレス" name="mail" ng-model="formData.mail"
+             placeholder="example@example.com" validation="vm.patterns.mail"></my-input>
+
+        <button class="button btn btn-primary btn-block" ng-disabled="myForm.$invalid">登録</button>
+    </form>
+</div>
+
+</body>
+</html>

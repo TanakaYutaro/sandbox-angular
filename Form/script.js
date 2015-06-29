@@ -10,8 +10,7 @@ angular.module("MyApp", [])
     .directive('myInput', function () {
         return {
             restrict: 'E',
-            require: ['^?form'],
-            transclude: true,
+            require: '^form',
             replace: true,
             scope: {
                 title: '@',
@@ -21,8 +20,8 @@ angular.module("MyApp", [])
                 required: '=',
                 validation: '='
             },
-            link: function (scope, element, attrs, controllers) {
-                var target = controllers[0][attrs.name];
+            link: function (scope, element, attrs, controller) {
+                var target = controller[attrs.name];
 
                 scope.isError = function () {
                     return target.$dirty && target.$invalid;

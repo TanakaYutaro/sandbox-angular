@@ -11,7 +11,6 @@ angular.module("MyApp", [])
         return {
             restrict: 'E',
             require: ['^?form'],
-            transclude: true,
             replace: true,
             scope: {
                 title: '@',

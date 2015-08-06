@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>IndexConfusing</title>
+</head>
+<body>
+
+<div class="container" ng-Controller="MainController as vm">
+    <h1>ng-repeat add & remove</h1>
+
+    <h3>Array</h3>
+    <form ng-submit="vm.addData()">
+        <input type="text" ng-model="vm.newData" placeholder="new">
+        <input type="submit">
+    </form>
+
+    <pre>{{vm.data | json}}</pre>
+    <div class="row">
+
+        <div class="col-md-4">
+            <p>d in vm.data</p>
+            <table>
+                <tr>
+                    <th>d</th>
+                    <th>$index</th>
+                    <th>dataIndex</th>
+                </tr>
+                <tr ng-repeat="d in vm.data" ng-init="dataIndex = $index">
+                    <td>{{d}}</td>
+                    <td>{{$index}}</td>
+                    <td>{{dataIndex}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <p>d in vm.data track by $index</p>
+            <table>
+                <tr>
+                    <th>d</th>
+                    <th>$index</th>
+                    <th>dataIndex</th>
+                </tr>
+                <tr ng-repeat="d in vm.data track by $index" ng-init="dataIndex = $index">
+                    <td>{{d}}</td>
+                    <td>{{$index}}</td>
+                    <td>{{dataIndex}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <p>(dataIndex, d) in vm.data track by dataIndex</p>
+            <table>
+                <tr>
+                    <th>d</th>
+                    <th>$index</th>
+                    <th>dataIndex1</th>
+                    <th>dataIndex2</th>
+                </tr>
+                <tr ng-repeat="(dataIndex2, d) in vm.data track by dataIndex2" ng-init="dataIndex1 = $index">
+                    <td>{{d}}</td>
+                    <td>{{$index}}</td>
+                    <td>{{dataIndex1}}</td>
+                    <td>{{dataIndex2}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h3>Json Array</h3>
+    <form ng-submit="vm.addData2()">
+        <input type="text" ng-model="vm.newData2" placeholder="new">
+        <input type="submit">
+    </form>
+
+    <pre>{{vm.data2 | json}}</pre>
+    <div class="row">
+
+        <div class="col-md-4">
+            <p>d in vm.data2</p>
+            <table>
+                <tr>
+                    <th>d</th>
+                    <th>$index</th>
+                    <th>dataIndex</th>
+                </tr>
+                <tr ng-repeat="d in vm.data2" ng-init="dataIndex = $index">
+                    <td>{{d.text}}</td>
+                    <td>{{$index}}</td>
+                    <td>{{dataIndex}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <p>d in vm.data2 track by $index</p>
+            <table>
+                <tr>
+                    <th>d</th>
+                    <th>$index</th>
+                    <th>dataIndex</th>
+                </tr>
+                <tr ng-repeat="d in vm.data2 track by $index" ng-init="dataIndex = $index">
+                    <td>{{d.text}}</td>
+                    <td>{{$index}}</td>
+                    <td>{{dataIndex}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <p>(dataIndex2, d) in vm.data2 track by dataIndex2</p>
+            <table>
+                <tr>
+                    <th>d</th>
+                    <th>$index</th>
+                    <th>dataIndex1</th>
+                    <th>dataIndex2</th>
+                </tr>
+                <tr ng-repeat="(dataIndex2, d) in vm.data2 track by dataIndex2" ng-init="dataIndex1 = $index">
+                    <td>{{d.text}}</td>
+                    <td>{{$index}}</td>
+                    <td>{{dataIndex1}}</td>
+                    <td>{{dataIndex2}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

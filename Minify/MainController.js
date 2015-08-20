@@ -1,3 +1,4 @@
+MainController.$inject = ['$scope'];
 function MainController($scope) {
     this.hoge = "hoge";
 

@@ -1,2 +1,2 @@
 angular.module("MyApp", [])
-    .controller("MainController", MainController);
+    .controller("MainController", ['$scope', MainController]);

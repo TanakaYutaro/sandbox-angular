@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="BingoJS">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Libraries -->
+    <link rel="stylesheet" type="text/css" href="/BingoJS/src/main/lib/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/BingoJS/src/main/lib/bootstrap/css/bootstrap-responsive.min.css"/>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/angularjs/angular.js"></script>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/angularjs/angular-route.js"></script>
+    <script type="text/javascript" src="/BingoJS/src/main/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Service -->
+    <script type="text/javascript" src="/BingoJS/src/main/js/service/bingoService.js"></script>
+
+    <!-- Controller -->
+    <script type="text/javascript" src="/BingoJS/src/main/js/controller/bingoController.js"></script>
+
+    <!-- Direfctive -->
+    <script type="text/javascript" src="/BingoJS/src/main/js/directive/pickedNumbers.js"></script>
+
+    <!-- Main -->
+    <script type="text/javascript" src="/BingoJS/src/main/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/BingoJS/src/main/css/style.css"/>
+
+    <title>BingoJS</title>
+</head>
+<body>
+
+<a ng-href="/er/">TOP</a>
+<a ng-href="/er/about">About</a>
+
+
+<!-- 各画面を表示する枠 -->
+<div class="container" ng-view></div>
+
+<script type='text/ng-template' id="/template/index.html">
+    <div ng-controller="BingoController">
+        <div class="container-fluid">
+            <div id="header">
+                <h2>Bingo Game</h2>
+            </div>
+            <div class="row-fluid">
+                <div class="span5">
+                    <button class="btn btn-large" ng-click="pickNumber()">
+                        Pick
+                    </button>
+                    <br><br>
+                    残り <span>{{shuffledNumbers.length}}</span> 個
+                </div>
+                <div class="span7">
+                    <div class="latestPickedNumber">{{pickedNumber}}</div>
+                </div>
+            </div>
+            <div id="hooter">
+                <picked ng-repeat="pickedNumber in pickedNumbers" num="{{pickedNumber}}">{{pickedNumber}}</picked>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type='text/ng-template' id="/template/about.html">
+    <h2>About</h2>
+    You can BingoGame on Web.
+</script>
+
+</body>
+</html>
